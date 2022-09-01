@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import MainTemplate from './MainTemplate';
 import Home from './molecules/Home/Home';
 import Offer from './molecules/Offer/Offer';
-import Section from './molecules/Section/Section';
+import Enquiry from './molecules/Enquiry/Enquiry';
 
 const Wrapper = styled.div`
   background-color: lightgreen;
@@ -20,7 +20,7 @@ const App = () => (
       <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/offer" element={<Offer />} />
-        <Route path="/section" element={<Section />} />
+        <Route path="/enquiry" element={<Enquiry />} />
       </Routes>
     </Wrapper>
   </MainTemplate>

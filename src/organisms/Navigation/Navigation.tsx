@@ -2,42 +2,59 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 const Wrapper = styled.nav`
-  width: 100%;
-  height: 100%;
   display: flex;
-  flex-direction: column;
-  border-right: 10px solid #dda0dd;
-  justify-content: flex-start;
   padding: 30px 0;
-  grid-row: 1/3;
-  grid-column: 1/1;
+  z-index: 7;
+  border-right: 10px solid ${({ theme }) => theme.colors.darkPink};
 `;
 
 const Logo = styled.div`
-  background-color: #808080;
-  width: 100%;
+  cursor: default;
+  width: 8vh;
   height: 60px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   margin-bottom: 30px;
-
+  background-color: ${({ theme }) => theme.colors.darkGrey};
   h1 {
-    font-size: 15px;
-    color: #ffffff;
     text-align: right;
-    margin-right: 20px;
+    margin-right: 24px;
+    font-size: ${({ theme }) => theme.fontSize.m};
+    color: ${({ theme }) => theme.colors.white};
+  }
+
+  @media (min-width: 1200px) {
+    width: 10.5vh;
+    h1 {
+      font-size: ${({ theme }) => theme.fontSize.l};
+      margin-right: 28px;
+    }
   }
 `;
 
 const StyledLink = styled(NavLink)`
+  :hover {
+    color: ${({ theme }) => theme.colors.gold};
+  }
   cursor: pointer;
-  font-weight: bold;
   text-decoration: none;
-  color: #808080;
-  text-align: right;
-  margin: 15px 20px 15px auto;
-  position: relative;
+  margin-left: 2vh;
+  font-weight: bold;
+  font-size: ${({ theme }) => theme.fontSize.l};
+  color: ${({ theme }) => theme.colors.darkGrey};
+  &.active {
+    color: ${({ theme }) => theme.colors.darkGold};
+  }
+
+  @media (min-width: 1000px) {
+    margin-left: 28vh;
+    font-size: ${({ theme }) => theme.fontSize.xl};
+  }
+`;
+
+const LinksSection = styled.div`
+  margin: 15px auto;
 `;
 
 const Navigation = () => (
@@ -49,9 +66,11 @@ const Navigation = () => (
         Cats
       </h1>
     </Logo>
-    <StyledLink to="/home">Home</StyledLink>
-    <StyledLink to="/section">Section</StyledLink>
-    <StyledLink to="/offer">Offer</StyledLink>
+    <LinksSection>
+      <StyledLink to="/home">Home</StyledLink>
+      <StyledLink to="/enquiry">Enquiry</StyledLink>
+      <StyledLink to="/offer">Offer</StyledLink>
+    </LinksSection>
   </Wrapper>
 );
 
