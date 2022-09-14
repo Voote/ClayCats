@@ -1,4 +1,4 @@
-import { StyledArea } from '../styles';
+import { StyledArea } from '../Molecules.styles';
 
 const Enquiry = () => (
   <StyledArea>
